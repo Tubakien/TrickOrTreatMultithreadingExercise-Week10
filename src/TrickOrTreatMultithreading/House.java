@@ -20,13 +20,12 @@ public class House {
     public void serveCandy()
     {
         Customer customer;
-        System.out.println("Riley waiting for lock.");
         synchronized (listCustomer)
         {
 
             while(listCustomer.size()==0)
             {
-                System.out.println("Riley is waiting for customer.");
+                System.out.println("Riley watches TV.");
                 try
                 {
                     listCustomer.wait();
@@ -36,13 +35,13 @@ public class House {
                     iex.printStackTrace();
                 }
             }
-            System.out.println("Riley found a customer in the queue.");
+            System.out.println("Riley answers door.");
             customer = (Customer)((LinkedList<?>)listCustomer).poll();
         }
         long duration= 3; // time to serve candy to one person
         try
         {
-            System.out.println("Serving candy to Customer : "+customer.getName());
+            System.out.println("Riley serving candy to Customer : "+customer.getName());
             TimeUnit.SECONDS.sleep(duration);
         }
         catch(InterruptedException iex)
@@ -60,7 +59,7 @@ public class House {
         {
             if(listCustomer.size() == houseQueue)
             {
-                System.out.println("Too long of wait for candy for customer "+customer.getName());
+                System.out.println("!!!Too long of wait for candy for customer "+customer.getName());
                 System.out.println("Customer "+customer.getName()+"Exists...");
                 return ;
             }

@@ -16,6 +16,18 @@ public class CustomerGenerator implements Runnable {
 
     public void run()
     {
+        try
+        {
+            Thread.sleep(2000);
+        }
+        catch(InterruptedException iex)
+        {
+            iex.printStackTrace();
+        }
+
+        for (int index = 0; index < 1001 ; index++) {
+
+        }
         while(true)
         {
             Customer customer = new Customer(house);
@@ -26,7 +38,7 @@ public class CustomerGenerator implements Runnable {
 
             try
             {
-                TimeUnit.SECONDS.sleep((long)(Math.random()*10));
+                TimeUnit.SECONDS.sleep((long)(Math.random()*3));
             }
             catch(InterruptedException iex)
             {

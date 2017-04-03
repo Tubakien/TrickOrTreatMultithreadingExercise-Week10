@@ -34,10 +34,10 @@ public class Customer implements Runnable {
 
     public void run()
     {
-        goForHairCut();
+        trickOrTreat();
     }
-    private synchronized void goForHairCut()
-    {
+
+    private synchronized void trickOrTreat() {
         house.add(this);
     }
 }
